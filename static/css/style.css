@@ -1,0 +1,56 @@
+.container {
+    border:0;
+    margin:0;
+    width:100%;
+}
+
+.header{
+    background-color: #fff;
+    height:100px;
+    padding-top: 50px;
+    
+}
+
+
+.trend_1{
+    display:block;
+    background-color: #dcebf3;
+    height:300px;
+}
+
+.trend_2{
+    display:none;
+    background-color: #dcebf3;
+    height:300px;
+}
+
+.trend_3{
+    display:none;
+    background-color: #dcebf3;
+    height:300px;
+}
+
+.line_Am {
+    background-color: #dcebf3;
+    height:300px;
+    
+}
+
+.plot_Am {
+    
+    background-color: #dcebf3;
+    height:300px;
+    
+}
+.line_Cr {
+    background-color: #dcebf3;
+    height:300px;
+    
+}
+
+.plot_Cr {
+    
+    background-color: #dcebf3;
+    height:300px;
+    
+}
