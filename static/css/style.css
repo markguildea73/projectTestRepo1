@@ -2,6 +2,9 @@
     border:0;
     margin:0;
     width:100%;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*using the flexbox with sections is problematic*/
 }
 
 .header{
@@ -16,6 +19,7 @@
     display:block;
     background-color: #dcebf3;
     height:300px;
+
 }
 
 .trend_2{
@@ -67,4 +71,37 @@
     height:300px;
     overflow: scroll;
     
+}
+
+/*Styling the table*/
+
+td, th {
+    padding: 1px 4px;
+    border: 1px black solid;
+}
+
+/*styling the buttons*/
+
+.btn_1 {
+    /*background-color: #f5bdbd;*/
+   
+
+}
+.btn_2 {
+    /*background-color: #a3a3e6;*/
+    
+ }
+
+.btn_3 {
+    /*background-color: #fbfb88;*/
+ 
+}
+
+.summary_box_1 {
+    background-color: #f1f19e;
+    height:300px;
+}
+.summary_box_2 {
+    background-color: #f1f19e;
+    height:300px;
 }

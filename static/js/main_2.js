@@ -141,10 +141,10 @@ queue()
             d3.csv("data/col1.csv", function(error, data) {
 		  if (error) throw error;
 		  
-		  //console.log(data)
+		  console.log(data)
 		  
 		  var sortAscending = true;
-		  var table = d3.select('.temp_Cr').append('table');
+		  var table = d3.select('TBD').append('table');
 		  var titles = d3.keys(data[0]);
 		  var headers = table.append('thead').append('tr')
 		                   .selectAll('th')
@@ -185,14 +185,14 @@ queue()
 		  var meanTemp1 = d3.mean(data, function(d) {return d.temp1});
 		  var staDevTemp1 = d3.deviation(data, function(d) {return d.temp1});
 		 
-		  console.log(minTemp1 + " Minimum Tempertaures")
-		  console.log(maxTemp1 + " Maximum Tempertaures")
-		  console.log(highlowTemp1 + " High and low")
-		  console.log(meanTemp1 + " Mean Temperatures")
-		  console.log(staDevTemp1 + " Standard deviation at Temperature 1")
+		  //console.log(minTemp1 + " Minimum Tempertaures")
+		  //console.log(maxTemp1 + " Maximum Tempertaures")
+		  //console.log(highlowTemp1 + " High and low")
+		  //console.log(meanTemp1 + " Mean Temperatures")
+		  //console.log(staDevTemp1 + " Standard deviation at Temperature 1")
 		  
 		  var tabulate = function (data,columns) {
-          var table = d3.select('.TBD').append('table')
+          var table = d3.select('.temp_Cr').append('table')
         	var thead = table.append('thead')
         	var tbody = table.append('tbody')
         
@@ -224,7 +224,7 @@ queue()
         d3.csv('data/col1.csv',function (data) {
         	var columns = ['date','temp1','temp2','temp3','temp4']
           tabulate(data,columns)
-})
+        })
 		  
         });
         }
