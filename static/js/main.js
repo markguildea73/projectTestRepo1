@@ -25,6 +25,8 @@ function makeGraphs(error, data) {
     
     min_Temp(ndx);
     
+    summ_data(ndx);
+    
     }
     
 //Composite line graph
@@ -175,6 +177,8 @@ function data_list(ndx){
 		  var meanTemp1 = d3.mean(data, function(d) {return d.temp1});
 		  var staDevTemp1 = d3.deviation(data, function(d) {return d.temp1});
 		  
+		  document.getElementsByClassName(".summary_detail").innerHTML=minTemp1;
+		  
 		  
 		 
 		  //console.log(minTemp1 + " Minimum Tempertaures")
@@ -247,3 +251,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 // User interface options-make the button change from scatter to line graph using JS
+
+
+
+// Generating the detail for summary data
+
+

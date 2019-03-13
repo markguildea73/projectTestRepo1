@@ -105,3 +105,9 @@ td, th {
     background-color: #f1f19e;
     height:300px;
 }
+
+.summary_detail {
+    display: block;
+    height:100px;
+    width:100px;
+}
