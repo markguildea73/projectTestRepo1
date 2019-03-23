@@ -11,3 +11,9 @@ $(".btn_Am").click(function(){
     
 })
 
+$(".btn_1").click(function(){
+    
+    // $(".summary_box_1").append("text"); how to add the min max and average from the CSV rows?
+
+})
+

@@ -16,20 +16,43 @@ function makeGraphs(error, data) {
         d.temp4 = +d.temp4;
 
     });
+      
+  var minTemp1 = d3.min(data, function(d) {return d.temp1});
+  var maxTemp1 = d3.max(data, function(d) {return d.temp1});
+  var highlowTemp1 = d3.extent(data, function(d) {return d.temp1});
+  var meanTemp1 = d3.mean(data, function(d) {return d.temp1});
+  var staDevTemp1 = d3.deviation(data, function(d) {return d.temp1});
+  
+  console.log(minTemp1 + " Minimum Tempertaures")
+  console.log(maxTemp1 + " Maximum Tempertaures")
+  console.log(highlowTemp1 + " High and low")
+  console.log(meanTemp1 + " Mean Temperatures")
+  console.log(staDevTemp1 + " Standard deviation at Temperature 1")
+  
+  function output_min(){
+      return document.getElementsByClassName(".output").innerHTML=minTemp1
+  }
+  
+  output_min();
+//   why does this not show in the div?
     
     show_composite_trend(ndx);
     
     show_scatter_plot_2(ndx);
     
-    // data_list(ndx);
-    
-    min_Temp(ndx);
+    data_list(ndx);
     
     summ_data(ndx);
+    
+    show_summary_selector(ndx);
+    
+    dc.renderAll();
+    
     
     }
     
 //Composite line graph
+
 function show_composite_trend(ndx){
     var date_dim = ndx.dimension(dc.pluck('date'));
     var minDate = date_dim.bottom(1)[0].date;
@@ -72,7 +95,7 @@ function show_composite_trend(ndx){
         .brushOn(true)
         // .render()
 }
-//Scatter Plot composite
+//Composite scatter plot with same data
         
 function show_scatter_plot_2(ndx){
     var date_dim = ndx.dimension(dc.pluck('date'));
@@ -126,8 +149,8 @@ function show_scatter_plot_2(ndx){
         .brushOn(true)
         
      }
- 
-         //Table code 1
+
+// creating a table with the csv data
         
 function data_list(ndx){
         d3.csv("data/amb1.csv", function(error, data) {
@@ -164,96 +187,67 @@ function data_list(ndx){
 	    });
   });
     }
-// Table code 2
-
-        function min_Temp(ndx){
-            d3.csv("data/amb1.csv", function(error, data) {
-		  if (error) throw error;
-		  //console.log(data)
-		  
-		  var minTemp1 = d3.min(data, function(d) {return d.temp1});
-		  var maxTemp1 = d3.max(data, function(d) {return d.temp1});
-		  var highlowTemp1 = d3.extent(data, function(d) {return d.temp1});
-		  var meanTemp1 = d3.mean(data, function(d) {return d.temp1});
-		  var staDevTemp1 = d3.deviation(data, function(d) {return d.temp1});
-		  
-		  document.getElementsByClassName(".summary_detail").innerHTML=minTemp1;
-		  
-		  
-		 
-		  //console.log(minTemp1 + " Minimum Tempertaures")
-		  //console.log(maxTemp1 + " Maximum Tempertaures")
-		  //console.log(highlowTemp1 + " High and low")
-		  //console.log(meanTemp1 + " Mean Temperatures")
-		  //console.log(staDevTemp1 + " Standard deviation at Temperature 1")
-		  
-		  var tabulate = function (data,columns) {
-          var table = d3.select('.temp_Am').append('table')
-        	var thead = table.append('thead')
-        	var tbody = table.append('tbody')
-        
-        	thead.append('tr')
-        	  .selectAll('th')
-        	    .data(columns)
-        	    .enter()
-        	  .append('th')
-        	    .text(function (d) { return d })
-        
-        	var rows = tbody.selectAll('tr')
-        	    .data(data)
-        	    .enter()
-        	  .append('tr')
-        
-        	var cells = rows.selectAll('td')
-        	    .data(function(row) {
-        	    	return columns.map(function (column) {
-        	    		return { column: column, value: row[column] }
-        	      })
-              })
-              .enter()
-            .append('td')
-              .text(function (d) { return d.value })
-        
-          return table;
-        }
-        
-        d3.csv('data/amb1.csv',function (data) {
-        	var columns = ['date','temp1','temp2','temp3','temp4']
-          tabulate(data,columns)
-        })
-		  
-        });
-      }
-        
-
-        
-// summary div will have a drop down choice 
-var inPut = document.querySelector("input[name=dropDown]");
-var summArray = ["", "Max Temp", "Min Temp", "Mean Temp", "StdDev"]
-var selSummary = document.querySelector("select[name=summary]");
-
-document.addEventListener("DOMContentLoaded", function(){
-    summArray.forEach(function(item){
-        let choice = document.createElement("option");
-        choice.value=item
-        choice.innerHTML=item
-        selSummary.appendChild(choice)
-        console.log(choice)
-    })
     
-})
+// Generating the detail for summary data
 
+function summ_data(ndx){
+    d3.csv("data/amb1.csv", function(error, data) {
+  if (error) throw error;
+  //console.log(data)
+  var tabulate = function (data,columns) {
+  var table = d3.select('.TBD').append('table')
+	var thead = table.append('thead')
+	var tbody = table.append('tbody')
+
+	thead.append('tr')
+	  .selectAll('th')
+	    .data(columns)
+	    .enter()
+	  .append('th')
+	    .text(function (d) { return d })
+
+	var rows = tbody.selectAll('tr')
+	    .data(data)
+	    .enter()
+	  .append('tr')
+
+	var cells = rows.selectAll('td')
+	    .data(function(row) {
+	    	return columns.map(function (column) {
+	    		return { column: column, value: row[column] }
+	      })
+      })
+      .enter()
+    .append('td')
+      .text(function (d) { return d.value })
+
+  return table;
+}
+
+d3.csv('data/amb1.csv',function (data) {
+	var columns = ['date','temp1','temp2','temp3','temp4']
+  tabulate(data,columns)
+})
+  
+});
+}
+
+
+//Selection box, not sure this is usefull
+function show_summary_selector(ndx){
+    dim = ndx.dimension(dc.pluck("temp1"));
+    group = dim.group()
+    
+    dc.selectMenu(".line_Am")
+        .dimension(dim)
+        .group(group)
+        .multiple(true)
+        .controlsUseVisibility(true);
+    }
+    
 // Use a loop to create alert when a reading is above 25°C or Below 8°C 
 
 
-
-
-
-
 // User interface options-make the button change from scatter to line graph using JS
-
-
-
-// Generating the detail for summary data
 
 
