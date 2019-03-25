@@ -12,10 +12,20 @@
     height:100px;
     
 }
+.sleft {
+    background-color: #f1f19e;
+    height:100px;
+}
+
+.sleft_1 {
+    background-color: #f1f19e;
+    height:300px;
+    
+}
 
 
 .trend_1{
-    display:block;
+    display:inline-block;
     background-color: #dcebf3;
     height:300px;
 
@@ -94,6 +104,11 @@ td, th {
 .btn_3 {
     /*background-color: #fbfb88;*/
  
+}
+
+.buttonSwitch {
+    background-color: #f1f19e;
+    height:100px;
 }
 
 .summary_box_1 {

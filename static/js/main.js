@@ -189,6 +189,7 @@ function data_list(ndx){
     }
     
 // Generating the detail for summary data
+// TBD = to be decided
 
 function summ_data(ndx){
     d3.csv("data/amb1.csv", function(error, data) {
@@ -238,7 +239,7 @@ function show_summary_selector(ndx){
     dim = ndx.dimension(dc.pluck("temp1"));
     group = dim.group()
     
-    dc.selectMenu(".line_Am")
+    dc.selectMenu(".TBD")
         .dimension(dim)
         .group(group)
         .multiple(true)
