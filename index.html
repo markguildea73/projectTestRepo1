@@ -27,7 +27,12 @@
     
     <section class="header"><div class="container">
         <div class="row">
-            <div class="sleft col-md-2">Dynamic Content</div>
+            <div class="sleft col-md-2">
+                <div class="buttonSwitch">
+                    <button class="btn_Cr">Coldroom</button>
+                    <button class="btn_Am">Ambient</button>
+                </div>
+            </div>
             <div class="col-md-8 col-sm-8">
                  <h3>Tabs</h3>
                   <ul class="nav nav-tabs">
@@ -39,10 +44,6 @@
                   </ul>
                   <br>
             </div>
-             <div class="buttonSwitch col-md-2 col-sm-2">
-                <button class="btn_Cr">Coldroom</button>
-                <button class="btn_Am">Ambient</button>
-            </div>
         </div>
     </div></section>
     
@@ -50,55 +51,40 @@
     
     <section class="trend_1"><div class="container">
         <div class="row">
-            <div class="sleft_1 col-md-2">JQUERY</div>
-            <div class="line_Am col-md-8"></div>
-            <div class="summary_box_1 col-md-2">
-                <p>Temperature Summary Type</p>
+            <div class="sleft_1 col-md-2 hidden-xs">
+                <div class="summary_box_1">
+                <p>Temperature Summary Ambient</p>
                 <button class="btn_1">Max</button>
                 <button class="btn_2">Min</button>
                 <button class="btn_3">Average</button>
                 <div class="summary_detail"><p id="output">output</p></div>
             </div>
-            <div class="sleft_1 col-md-2">JQUERY</div>
-            <div class="plot_Am col-md-8"></div>
-            <div class="summary_box_2 col-md-2">
-                <p>Temperature Summary</p>
-                <button class="btn_1">Max</button>
-                <button class="btn_2">Min</button>
-                <button class="btn_3">Average</button>
             </div>
-            <div class="sleft_1 col-md-2">JQUERY</div>
-            <div class="temp_Am col-md-10"></div>
+            <div class="line_Am col-md-10 col-xs-12"></div>
+            <div class="sleft_1 col-md-2 hidden-xs"></div>
+            <div class="plot_Am col-md-10 col-xs-12"></div>
+            <div class="sleft_1 col-md-2 hidden-xs"></div>
+            <div class="temp_Am col-md-10 col-xs-12"></div>
         </div>
     </div></section>
     
     <!-- the section will have a plot -->
-    
     <section class="trend_2"><div class="container">
         <div class="row">
-            <div class="line_Cr col-md-12">
+            <div class="sleft_1 col-md-2 hidden-xs">
+                 <div class="summary_box_2">
+                <p>Temperature Summary Coldroom</p>
                 <button class="btn_1">Max</button>
                 <button class="btn_2">Min</button>
                 <button class="btn_3">Average</button>
+                <div class="summary_detail"><p id="output">output</p></div>
+                </div>
             </div>
-            <div class="plot_Cr col-md-12">
-                <button class="btn_1">Max</button>
-                <button class="btn_2">Min</button>
-                <button class="btn_3">Average</button>
-            </div>
-            <div class="temp_Cr col-md-12"></div>
-        </div>
-    </div></section>
-    
-    <!-- this section will have barchart of some type -->
-    
-    <section class="trend_3"><div class="container">
-        <div class="row">
-            <div class="bar col-md-12">
-                <button class="btn_1">Max</button>
-                <button class="btn_2">Min</button>
-                <button class="btn_3">Average</button>
-            </div>
+            <div class="line_Cr col-md-10 col-xs-12"></div>
+            <div class="sleft_1 col-md-2 hidden-xs"></div>
+            <div class="plot_Cr col-md-10 col-xs-12"></div>
+            <div class="sleft_1 col-md-2 hidden-xs"></div>
+            <div class="temp_Cr col-md-10 col-xs-12"></div>
         </div>
     </div></section>
 

@@ -67,8 +67,6 @@ function show_composite_trend(ndx){
     var compositeChart = dc.compositeChart('.line_Am');
     
     compositeChart
-        .width(600)
-        .height(280)
         .dimension(date_dim)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .y(d3.scale.linear().domain([15,25]))
@@ -76,7 +74,7 @@ function show_composite_trend(ndx){
         .xAxisLabel("Date")
         .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
-        .elasticX(false)
+        .elasticX(true)
         .yAxisPadding(5)
         .compose([
             dc.lineChart(compositeChart)
@@ -119,8 +117,6 @@ function show_scatter_plot_2(ndx){
     var scatter = dc.compositeChart('.plot_Am');
     
     scatter
-        .width(600)
-        .height(280)
         .dimension(date_dim)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .y(d3.scale.linear().domain([15,25]))
@@ -128,7 +124,7 @@ function show_scatter_plot_2(ndx){
         .xAxisLabel("Date")
         .legend(dc.legend().x(80).y(2).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
-        .elasticX(false)
+        .elasticX(true)
         .compose([
             dc.scatterPlot(scatter)
                 .colors('green')
@@ -189,7 +185,7 @@ function data_list(ndx){
     }
     
 // Generating the detail for summary data
-// TBD = to be decided
+
 
 function summ_data(ndx){
     d3.csv("data/amb1.csv", function(error, data) {

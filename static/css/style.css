@@ -109,15 +109,18 @@ td, th {
 .buttonSwitch {
     background-color: #f1f19e;
     height:100px;
+    padding-top: 20px;
 }
 
 .summary_box_1 {
     background-color: #f1f19e;
-    height:300px;
+    height:100px;
+    width: 100%;
 }
 .summary_box_2 {
     background-color: #f1f19e;
-    height:300px;
+    height:100px;
+    width:100%;
 }
 
 .summary_detail {

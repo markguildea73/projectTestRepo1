@@ -54,7 +54,7 @@ function show_composite_trend_c(ndx){
         .xAxisLabel("Date")
         .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
-        .elasticX(false)
+        .elasticX(true)
         .yAxisPadding(5)
         .compose([
             dc.lineChart(compositeChart_c)
@@ -109,7 +109,7 @@ function show_composite_trend_c(ndx){
         .xAxisLabel("Date")
         .legend(dc.legend().x(80).y(2).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
-        .elasticX(false)
+        .elasticX(true)
         .compose([
             dc.scatterPlot(scatter)
                 .colors('green')
@@ -127,7 +127,7 @@ function show_composite_trend_c(ndx){
                 .symbolSize(2)
                 .clipPadding(10)
         ])
-        .brushOn(false)
+        .brushOn(true)
         
      }
 //Table code 
@@ -139,7 +139,7 @@ function show_composite_trend_c(ndx){
 // 	  console.log(data)
 	  
 	  var sortAscending = true;
-	  var table = d3.select('TBD').append('table');
+	  var table = d3.select('.tempCr').append('table');
 	  var titles = d3.keys(data[0]);
 	  var headers = table.append('thead').append('tr')
 	                   .selectAll('th')
